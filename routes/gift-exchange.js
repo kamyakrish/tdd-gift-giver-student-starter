@@ -13,7 +13,7 @@ router.post('/pairs', async (req, res, next) => {
     try {
         let names = req.body.names;
         if (!names || names.length == 0) {
-            next(new BadRequestError("Must be array"));
+            next(new BadRequestError("No key found in the request body"));
         }
 
         const pairings = GiftExchange.pairs(names);
@@ -28,7 +28,7 @@ router.post('/traditional', async (req, res, next) => {
     try {
         let names = req.body.names;
         if (!names || names.length == 0) {
-            next(new BadRequestError("Must be array"));
+            next(new BadRequestError("No key found in the request body"));
         }
 
         const pairings = GiftExchange.traditional(names);

@@ -4,10 +4,11 @@ class GiftExchange {
     static pairs(names) {
 
         if (names.length % 2 != 0) {
-            throw new BadRequestError("List of names must be even");
+            throw new BadRequestError("List of names cannot be odd");
         }
         else {
-            const pairings = []; // Used to store our tuples/pairings
+            //Array to store pairings
+            const pairings = [];
             const used = [];
 
             while (true) {
@@ -15,7 +16,7 @@ class GiftExchange {
                     break;
                 }
 
-                // Get two random indexes, if there are equal, then redo
+
                 let random1 = Math.floor(Math.random() * names.length)
                 let random2 = Math.floor(Math.random() * names.length)
 
@@ -23,7 +24,7 @@ class GiftExchange {
                     continue;
                 }
 
-                // If the two randomly picked indexes are valid, then pair them and add to used.
+
                 pairings.push([names[random1], names[random2]]);
                 used.push(names[random1]);
                 used.push(names[random2]);
@@ -42,6 +43,7 @@ class GiftExchange {
 
         let random = Math.floor(Math.random() * names.length - 1) + 1;
 
+        //List random pairings
         pairings.push(firstGiver + " is giving a gift to " + names[random]);
         used.push(firstGiver);
         curGiver = names[random];

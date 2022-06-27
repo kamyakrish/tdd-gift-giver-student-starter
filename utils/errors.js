@@ -1,4 +1,4 @@
-
+//Create classes for all the different types of error
 
 class ExpressionError extends Error {
     constructor(message, status) {
